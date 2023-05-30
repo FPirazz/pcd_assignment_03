@@ -28,23 +28,12 @@ public class FileReader extends AbstractBehavior<FileReaderMsg>  {
     public static Behavior<FileReaderMsg> create() { return Behaviors.setup(FileReader::new); }
 
     private Behavior<FileReaderMsg> onFilePathReaderMsg(FilePathReaderMsg msg) {
-        this.getContext().getLog().info("Reading File: " + msg.path);
-        //READ FILE HERE BEGIN
-
-        //END
+//        this.getContext().getLog().info("Reading File: " + msg.path);
+        int numLines = msg.analyser.countLines(new File(msg.path));
+        msg.analyser.updateIntervals(numLines);
+        msg.analyser.updateTopFiles(new File(msg.path), numLines);
         return this;
     }
 
-    private int countLines(File file) {
-        int numLines = 0;
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file))) {
-            while (reader.readLine() != null) {
-                numLines = numLines + 1;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return numLines;
-    }
 
 }

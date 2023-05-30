@@ -13,8 +13,8 @@ import java.util.List;
 
 public abstract class AbstractSourceAnalyser implements SourceAnalyser {
 
-    protected final List<Integer> intervals;
-    protected final List<Pair<String, Integer>> topFiles;
+    public final List<Integer> intervals;
+    public final List<Pair<String, Integer>> topFiles;
     protected String initialDirectory;
     protected int ranges;
     protected int maxL;
@@ -55,7 +55,7 @@ public abstract class AbstractSourceAnalyser implements SourceAnalyser {
         }
     }
 
-    protected int countLines(File file) {
+    public int countLines(File file) {
         int numLines = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             while (reader.readLine() != null) {
@@ -67,7 +67,7 @@ public abstract class AbstractSourceAnalyser implements SourceAnalyser {
         return numLines;
     }
 
-    protected void updateTopFiles(final File file, final int numLines) {
+    public void updateTopFiles(final File file, final int numLines) {
         synchronized (topFiles){
             topFiles.add(new Pair<>(file.getAbsolutePath(), numLines));
             topFiles.sort((pair1, pair2) ->
@@ -79,11 +79,11 @@ public abstract class AbstractSourceAnalyser implements SourceAnalyser {
         }
     }
 
-    protected void resetTopFiles() {
+    public void resetTopFiles() {
         topFiles.clear();
     }
 
-    protected void updateIntervals(final int numLines) {
+    public void updateIntervals(final int numLines) {
         synchronized (intervals) {
             for (int i = ranges - 1; i >= 0; i--) {
                 if (numLines >= maxL) {
@@ -97,19 +97,19 @@ public abstract class AbstractSourceAnalyser implements SourceAnalyser {
         }
     }
 
-    protected void resetIntervals() {
+    public void resetIntervals() {
         intervals.clear();
         for(int i = 0; i < ranges; i++) {
             this.intervals.add(i, 0);
         }
     }
 
-    protected void printTopFiles(List<Pair<String, Integer>> topFiles) {
+    public void printTopFiles(List<Pair<String, Integer>> topFiles) {
         System.out.println("Top Files By Line Count: ");
         topFiles.forEach(pair -> System.out.println("File Path: " + pair.first + ", lines: " + pair.second));
     }
 
-    protected void printIntervals(List<Integer> intervals) {
+    public void printIntervals(List<Integer> intervals) {
         for (int i = 0; i < ranges; i++) {
             if (i == 0) {
                 System.out.println("Range [0, " + String.valueOf((maxL / (ranges - 1)) - 1) + "]: " + intervals.get(i));

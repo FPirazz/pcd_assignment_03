@@ -32,14 +32,14 @@ public class DirectoryExplorer extends AbstractBehavior<DirectoryExplorerMsg> {
             files = new File(queue.remove()).listFiles();
             for(File file : files) {
                 if(file.isDirectory()) {
-                    this.getContext().getLog().info("Found Directory: " + file.getAbsolutePath());
+//                    this.getContext().getLog().info("Found Directory: " + file.getAbsolutePath());
                     queue.add(file.getAbsolutePath());
                 } else if (file.isFile() && file.getAbsolutePath().endsWith(".java")) {
-                    msg.fileReader.tell(new FilePathReaderMsg(file.getAbsolutePath()));
+                    msg.fileReader.tell(new FilePathReaderMsg(file.getAbsolutePath(), msg.analyser));
                 }
             }
         }
-
+        msg.mainActor.tell(new StopMsg(msg.analyser));
         return this;
     }
 
