@@ -72,7 +72,7 @@ set CLASSPATH=%APP_HOME%\lib\pcd_assignment_03.jar;%APP_HOME%\lib\guava-31.1-jre
 
 
 @rem Execute pcd_assignment_03
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PCD_ASSIGNMENT_03_OPTS%  -classpath "%CLASSPATH%" main.AnalyserDemo %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PCD_ASSIGNMENT_03_OPTS%  -classpath "%CLASSPATH%" pointOne.main.AnalyserDemo %*
 
 :end
 @rem End local scope for the variables with windows NT shell
