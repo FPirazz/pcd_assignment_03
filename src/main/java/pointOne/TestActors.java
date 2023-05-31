@@ -1,10 +1,7 @@
 package pointOne;
 
 
-import akka.actor.typed.ActorSystem;
 import pointOne.actors.ActorsAnalyser;
-import pointOne.actors.entities.MainActor;
-import pointOne.actors.msgs.BootMsg;
 
 public class TestActors {
 

@@ -1,6 +1,7 @@
-package pointOne.actors.msgs;
+package pointOne.actors.msgs.mainActor;
 
 import pointOne.actors.ActorsAnalyser;
+import pointOne.actors.msgs.MainActorMsg;
 
 public class BootMsg implements MainActorMsg {
     public final String initDirectory;

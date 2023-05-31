@@ -5,13 +5,12 @@ import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
 import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
-import pointOne.actors.msgs.DirectoryExplorerMsg;
-import pointOne.actors.msgs.FilePathReaderMsg;
+import pointOne.actors.msgs.directoryExplorer.DirectoryExplorerDoneMsg;
+import pointOne.actors.msgs.fileReader.FilePathReaderMsg;
 import pointOne.actors.msgs.FileReaderMsg;
+import pointOne.actors.msgs.fileReader.FileReaderDoneMsg;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 
 public class FileReader extends AbstractBehavior<FileReaderMsg>  {
     public FileReader(final ActorContext<FileReaderMsg> context) {
@@ -22,10 +21,16 @@ public class FileReader extends AbstractBehavior<FileReaderMsg>  {
     public Receive<FileReaderMsg> createReceive() {
         return newReceiveBuilder()
                 .onMessage(FilePathReaderMsg.class, this::onFilePathReaderMsg)
+                .onMessage(FileReaderDoneMsg.class, this::onFileReaderDone)
                 .build();
     }
 
     public static Behavior<FileReaderMsg> create() { return Behaviors.setup(FileReader::new); }
+
+    private Behavior<FileReaderMsg> onFileReaderDone(FileReaderDoneMsg msg) {
+        msg.directoryExplorer.tell(new DirectoryExplorerDoneMsg());
+        return this;
+    }
 
     private Behavior<FileReaderMsg> onFilePathReaderMsg(FilePathReaderMsg msg) {
 //        this.getContext().getLog().info("Reading File: " + msg.path);

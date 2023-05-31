@@ -1,12 +1,12 @@
-package pointOne.actors.msgs;
+package pointOne.actors.msgs.directoryExplorer;
 
-import akka.actor.Actor;
 import akka.actor.typed.ActorRef;
-import com.sun.tools.javac.Main;
 import pointOne.actors.ActorsAnalyser;
-import pointOne.actors.entities.MainActor;
+import pointOne.actors.msgs.DirectoryExplorerMsg;
+import pointOne.actors.msgs.FileReaderMsg;
+import pointOne.actors.msgs.MainActorMsg;
 
-public class StartMsg implements DirectoryExplorerMsg{
+public class StartMsg implements DirectoryExplorerMsg {
     public final String initDirectory;
     public final ActorRef<FileReaderMsg> fileReader;
     public final ActorsAnalyser analyser;

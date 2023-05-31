@@ -8,8 +8,12 @@ import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
 import pointOne.actors.entities.children.DirectoryExplorer;
 import pointOne.actors.entities.children.FileReader;
-import pointOne.actors.msgs.*;
-import pointOne.main.AbstractSourceAnalyser;
+import pointOne.actors.msgs.directoryExplorer.StartMsg;
+import pointOne.actors.msgs.DirectoryExplorerMsg;
+import pointOne.actors.msgs.FileReaderMsg;
+import pointOne.actors.msgs.MainActorMsg;
+import pointOne.actors.msgs.mainActor.BootMsg;
+import pointOne.actors.msgs.mainActor.StopMsg;
 
 public class MainActor extends AbstractBehavior<MainActorMsg> {
     public MainActor(final ActorContext<MainActorMsg> context) {
@@ -27,9 +31,7 @@ public class MainActor extends AbstractBehavior<MainActorMsg> {
     public static Behavior<MainActorMsg> create() { return Behaviors.setup(MainActor::new); }
 
     private Behavior<MainActorMsg> onStopMsg(final StopMsg msg) {
-        msg.analyser.printTopFiles(msg.analyser.topFiles);
-        msg.analyser.printIntervals(msg.analyser.intervals);
-        Behaviors.stopped();
+        this.getContext().getSystem().terminate();
         return this;
     }
 

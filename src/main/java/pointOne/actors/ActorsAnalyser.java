@@ -1,8 +1,10 @@
 package pointOne.actors;
 
+import akka.Done;
 import akka.actor.typed.ActorSystem;
+import akka.dispatch.OnComplete;
 import pointOne.actors.entities.MainActor;
-import pointOne.actors.msgs.BootMsg;
+import pointOne.actors.msgs.mainActor.BootMsg;
 import pointOne.actors.msgs.MainActorMsg;
 import pointOne.main.AbstractSourceAnalyser;
 
@@ -22,10 +24,19 @@ public class ActorsAnalyser extends AbstractSourceAnalyser {
                 ActorSystem.create(MainActor.create(), "BootActor");
         bootActor.tell(new BootMsg(directory, this));
 
-//        Thread.sleep(20000);
+        ActorsAnalyser context = this;
 
-        Instant end = Instant.now();
-        System.out.println("ActorsAnalyser, completed in " + Duration.between(start, end).toMillis() + " ms");
+        bootActor.whenTerminated().onComplete(new OnComplete<Done>() {
+            @Override
+            public void onComplete(Throwable failure, Done success) {
+                context.printTopFiles(context.topFiles);
+                context.printIntervals(context.intervals);
+
+                Instant end = Instant.now();
+                System.out.println("ActorsAnalyser, completed in " + Duration.between(start, end).toMillis() + " ms");
+            }
+        }, bootActor.executionContext());
+
     }
 
     @Override
