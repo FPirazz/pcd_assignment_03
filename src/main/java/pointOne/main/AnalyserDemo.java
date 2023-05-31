@@ -1,5 +1,8 @@
 package pointOne.main;
 
+import akka.actor.Actor;
+import pointOne.actors.ActorsAnalyser;
+
 import java.util.Scanner;
 
 public class AnalyserDemo {
@@ -13,26 +16,7 @@ public class AnalyserDemo {
 
 
         Scanner scanner = new Scanner(System.in);
-//        while (selectedAnalyser < 1 || selectedAnalyser > 4) {
-//            System.out.println("Choose analyser to test (1 to 4): ");
-//            System.out.println("1. Executor Service");
-//            System.out.println("2. Virtual Thread");
-//            System.out.println("3. VertX");
-//            System.out.println("4. RxJava");
-//            if (scanner.hasNextInt()) {
-//                selectedAnalyser = scanner.nextInt();
-//                scanner.nextLine();
-//            } else {
-//                scanner.nextLine(); // Discard invalid input
-//            }
-//        }
-//
-//        switch (selectedAnalyser) {
-//            case 1 -> analyser = new TaskSourceAnalyser();
-//            case 2 -> analyser = new VirtualSourceAnalyser();
-//            case 3 -> analyser = new VertXSourceAnalyser();
-//            case 4 -> analyser = new RxSourceAnalyser();
-//        }
+        analyser = new ActorsAnalyser();
 
         while (selectedMethod < 1 || selectedMethod > 2) {
             System.out.println("Choose method to test (1 to 2): ");

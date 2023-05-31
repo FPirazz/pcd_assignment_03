@@ -11,14 +11,17 @@ public class StartMsg implements DirectoryExplorerMsg {
     public final ActorRef<FileReaderMsg> fileReader;
     public final ActorsAnalyser analyser;
     public final ActorRef<MainActorMsg> mainActor;
+    public final boolean updateGUI;
     public StartMsg(final String initDirectory,
                     final ActorRef<FileReaderMsg> fileReader,
                     final ActorsAnalyser analyser,
-                    final ActorRef<MainActorMsg> mainActor) {
+                    final ActorRef<MainActorMsg> mainActor,
+                    final boolean updateGUI) {
         this.initDirectory = initDirectory;
         this.fileReader = fileReader;
         this.analyser = analyser;
         this.mainActor = mainActor;
+        this.updateGUI = updateGUI;
     }
 
 }

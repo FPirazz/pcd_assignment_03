@@ -7,11 +7,14 @@ import pointOne.actors.entities.MainActor;
 import pointOne.actors.msgs.mainActor.BootMsg;
 import pointOne.actors.msgs.MainActorMsg;
 import pointOne.main.AbstractSourceAnalyser;
+import pointOne.main.view.AnalyserView;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Optional;
 
 public class ActorsAnalyser extends AbstractSourceAnalyser {
+    private ActorSystem<MainActorMsg> bootActor;
     @Override
     public void getReport(String directory,
                           int ranges,
@@ -19,12 +22,12 @@ public class ActorsAnalyser extends AbstractSourceAnalyser {
                           int numTopFiles) throws InterruptedException {
         Instant start = Instant.now();
         this.setParameters(directory, ranges, maxL, numTopFiles);
-
-        final ActorSystem<MainActorMsg> bootActor =
-                ActorSystem.create(MainActor.create(), "BootActor");
-        bootActor.tell(new BootMsg(directory, this));
-
         ActorsAnalyser context = this;
+
+        bootActor = ActorSystem.create(MainActor.create(context, Optional.empty()), "BootActor");
+        bootActor.tell(new BootMsg(directory, this, false));
+
+
 
         bootActor.whenTerminated().onComplete(new OnComplete<Done>() {
             @Override
@@ -41,17 +44,45 @@ public class ActorsAnalyser extends AbstractSourceAnalyser {
 
     @Override
     public void analyzeSources() throws InterruptedException {
+        view = new AnalyserView(this);
+        view.display();
+        ActorsAnalyser context = this;
 
+        while(true) {
+            bootActor = ActorSystem.create(MainActor.create(context, Optional.of(view)), "BootActor");
+
+            waitStart();
+
+            bootActor.tell(new BootMsg(initialDirectory, this, true));
+            Instant start = Instant.now();
+
+            bootActor.whenTerminated().onComplete(new OnComplete<Done>() {
+                @Override
+                public void onComplete(Throwable failure, Done success) {
+                    Instant end = Instant.now();
+                    view.changeState("ActorsAnalyser, completed in " + Duration.between(start, end).toMillis() + " ms");
+                }
+            }, bootActor.executionContext());
+        }
     }
 
     @Override
     public void stopExecution() {
-
+        bootActor.terminate();
+        view.changeState("Stopped");
     }
 
     @Override
     public void waitStart() {
-
+        synchronized(this) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        resetTopFiles();
+        resetIntervals();
     }
 
     @Override
@@ -59,6 +90,12 @@ public class ActorsAnalyser extends AbstractSourceAnalyser {
                              int ranges,
                              int maxL,
                              int numTopFile) {
-
+        this.initialDirectory = directory;
+        this.ranges = ranges;
+        this.maxL = maxL;
+        this.numTopFiles = numTopFile;
+        synchronized (this) {
+            notifyAll();
+        }
     }
 }

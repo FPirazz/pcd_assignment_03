@@ -9,8 +9,7 @@ public class TestActors {
 
         ActorsAnalyser analyser = new ActorsAnalyser();
         try {
-            analyser.getReport("C:\\Users\\kryas\\Desktop\\Exercises\\Magistrale\\Pcd-Ricci\\pcd_assignment_03\\input",
-            6, 150, 5);
+            analyser.analyzeSources();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

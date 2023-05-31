@@ -45,7 +45,7 @@ public class DirectoryExplorer extends AbstractBehavior<DirectoryExplorerMsg> {
 //                    this.getContext().getLog().info("Found Directory: " + file.getAbsolutePath());
                     queue.add(file.getAbsolutePath());
                 } else if (file.isFile() && file.getAbsolutePath().endsWith(".java")) {
-                    msg.fileReader.tell(new FilePathReaderMsg(file.getAbsolutePath(), msg.analyser));
+                    msg.fileReader.tell(new FilePathReaderMsg(file.getAbsolutePath(), msg.analyser, msg.updateGUI));
                 }
             }
         }

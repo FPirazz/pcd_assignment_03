@@ -16,8 +16,8 @@ public abstract class AbstractSourceAnalyser implements SourceAnalyser {
     public final List<Integer> intervals;
     public final List<Pair<String, Integer>> topFiles;
     protected String initialDirectory;
-    protected int ranges;
-    protected int maxL;
+    public int ranges;
+    public int maxL;
     protected int numTopFiles;
     protected AnalyserView view;
 
