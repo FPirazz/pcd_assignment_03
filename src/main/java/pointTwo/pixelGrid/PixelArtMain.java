@@ -15,14 +15,14 @@ public class PixelArtMain {
 		var fooBrush = new BrushManager.Brush(0, 0, randomColor());
 		brushManager.addBrush(localBrush);
 		brushManager.addBrush(fooBrush);
-		PixelGrid grid = new PixelGrid(40,40);
+		PixelGrid grid = new PixelGrid(	40,40);
 
 		Random rand = new Random();
 		for (int i = 0; i < 10; i++) {
 			grid.set(rand.nextInt(40), rand.nextInt(40), randomColor());
 		}
 
-		PixelGridView view = new PixelGridView(grid, brushManager, 800, 800);
+		PixelGridView view = new PixelGridView(grid, brushManager, 800, 800, null);
 
 		view.addMouseMovedListener((x, y) -> {
 			localBrush.updatePosition(x, y);

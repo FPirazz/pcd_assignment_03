@@ -1,5 +1,10 @@
 package pointTwo.pixelGrid;
 
+import akka.actor.typed.ActorRef;
+import pointTwo.actorLogic.msgs.ActorBrushInterface;
+import pointTwo.actorLogic.msgs.brush.AddBrushRequestMsg;
+import pointTwo.actorLogic.msgs.brush.RemoveUserRequestMsg;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -19,7 +24,7 @@ public class PixelGridView extends JFrame {
 
 	private final List<ColorChangeListener> colorChangeListeners;
     
-    public PixelGridView(PixelGrid grid, BrushManager brushManager, int w, int h){
+    public PixelGridView(PixelGrid grid, BrushManager brushManager, int w, int h, ActorRef<ActorBrushInterface> user){
 		this.grid = grid;
 		this.w = w;
 		this.h = h;
@@ -31,17 +36,25 @@ public class PixelGridView extends JFrame {
         panel = new VisualiserPanel(grid, brushManager, w, h);
         panel.addMouseListener(createMouseListener());
 		panel.addMouseMotionListener(createMotionListener());
+		var buttonPanel = new JPanel();
 		var colorChangeButton = new JButton("Change color");
+		var addUserButton = new JButton("Add User");
+		var removeUserButton = new JButton("Remove User");
 		colorChangeButton.addActionListener(e -> {
 			var color = JColorChooser.showDialog(this, "Choose a color", Color.BLACK);
 			if (color != null) {
 				colorChangeListeners.forEach(l -> l.colorChanged(color.getRGB()));
 			}
 		});
+		addUserButton.addActionListener(e -> user.tell(new AddBrushRequestMsg()));
+		removeUserButton.addActionListener(e -> user.tell(new RemoveUserRequestMsg()));
 		// add panel and a button to the button to change color
 		add(panel, BorderLayout.CENTER);
-		add(colorChangeButton, BorderLayout.SOUTH);
-        getContentPane().add(panel);
+		buttonPanel.add(colorChangeButton);
+		buttonPanel.add(addUserButton);
+		buttonPanel.add(removeUserButton);
+		add(buttonPanel, BorderLayout.SOUTH);
+		getContentPane().add(panel);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		hideCursor();
     }
