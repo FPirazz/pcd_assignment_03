@@ -9,11 +9,10 @@ import java.rmi.RemoteException;
 
 public interface CanvasServer extends Remote {
 
-    SetupMessage setupClient() throws  RemoteException;
+    SetupMessage setupClient() throws RemoteException;
     void registerClient(String userName,
                         BrushManager.Brush userBrush,
                         PixelGridView userView) throws RemoteException;
-
     void refreshView() throws RemoteException;
 
 }

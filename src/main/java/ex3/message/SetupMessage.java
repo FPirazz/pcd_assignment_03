@@ -2,8 +2,8 @@ package ex3.message;
 
 import akka.actor.typed.ActorRef;
 import ex2.actorLogic.msgs.ActorBrushManagerInterface;
-import ex2.pixelGrid.BrushManager;
-import ex2.pixelGrid.PixelGrid;
+import ex3.pixelGrid.BrushManager;
+import ex3.pixelGrid.PixelGrid;
 import ex3.CanvasServer;
 
 import java.io.Serializable;
