@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +94,13 @@ public class PixelGridView extends JFrame {
 				int dy = h / grid.getNumRows();
 				int col = e.getX() / dx;
 				int row = e.getY() / dy;
-				pixelListeners.forEach(l -> l.selectedCell(col, row));
+				pixelListeners.forEach(l -> {
+					try {
+						l.selectedCell(col, row);
+					} catch (RemoteException ex) {
+						throw new RuntimeException(ex);
+					}
+				});
 			}
 
 			@Override
@@ -117,7 +124,13 @@ public class PixelGridView extends JFrame {
 
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				movedListener.forEach(l -> l.mouseMoved(e.getX(), e.getY()));
+				movedListener.forEach(l -> {
+					try {
+						l.mouseMoved(e.getX(), e.getY());
+					} catch (RemoteException ex) {
+						throw new RuntimeException(ex);
+					}
+				});
 			}
 		};
 	}
