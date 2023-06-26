@@ -1,20 +1,17 @@
-package ex3.message;
+package ex3bis.message;
 
-
-
-import ex3.pixelGrid.RemoteBrushManager;
-import ex3.pixelGrid.RemotePixelGrid;
+import ex3bis.pixelGrid.*;
 
 import java.io.Serializable;
 
 public class SetupMessage implements Serializable {
 
-    private final RemotePixelGrid grid = null;
-    private final RemoteBrushManager brushManager;
+    private final PixelGrid grid = null;
+    private final BrushManager brushManager;
     private final int height;
     private final int width;
-    public SetupMessage(final RemotePixelGrid grid,
-                    final RemoteBrushManager brushManager,
+    public SetupMessage(final PixelGrid grid,
+                    final BrushManager brushManager,
                     final int height,
                     final int width) {
         // this.grid = grid;
@@ -22,8 +19,8 @@ public class SetupMessage implements Serializable {
         this.height = height;
         this.width = width;
     }
-    public RemotePixelGrid getGrid() { return grid; }
-    public RemoteBrushManager getBrushManager() {
+    public PixelGrid getGrid() { return grid; }
+    public BrushManager getBrushManager() {
         return brushManager;
     }
     public int getHeight() {

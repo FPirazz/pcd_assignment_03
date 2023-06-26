@@ -1,24 +1,26 @@
-package ex3;
+package ex3bis;
 
 import ex2.actorLogic.utilities.Utilities;
-import ex3.message.AddClientMessage;
-import ex3.message.SetupMessage;
-import ex3.pixelGrid.RemoteBrush;
-import ex3.pixelGrid.RemoteBrushManager;
-import ex3.pixelGrid.RemoteView;
+import ex3bis.message.AddClientMessage;
+import ex3bis.message.SetupMessage;
+import ex3bis.pixelGrid.BrushManager.Brush;
+import ex3bis.pixelGrid.BrushManager;
+import ex3bis.pixelGrid.PixelGrid;
+import ex3bis.pixelGrid.PixelGridView;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.UUID;
 
 public class BrushClient {
 
     private final CanvasServer server;
-    private RemoteView view;
-    private RemoteBrush localBrush;
-    private RemoteBrushManager brushManager;
+
+    private PixelGrid grid;
+    private PixelGridView view;
+    private BrushManager.Brush localBrush;
+    private BrushManager brushManager;
     private final String clientID;
 
     public BrushClient(CanvasServer server) throws RemoteException {
@@ -28,27 +30,29 @@ public class BrushClient {
         SetupMessage msg = server.setupClient();
         this.brushManager = msg.getBrushManager();
 
-        this.localBrush = new RemoteBrush(msg.getWidth() / 2,
+        this.localBrush = new BrushManager.Brush(msg.getWidth() / 2,
                 msg.getHeight() / 2,
                 Utilities.randomColor());
 
-        this.view = new RemoteView(msg.getGrid(),
+        this.grid = msg.getGrid();
+
+        this.view = new PixelGridView(msg.getGrid(),
                 msg.getBrushManager(),
                 msg.getWidth(),
-                msg.getHeight(),
-                this);
+                msg.getHeight());
 
         this.view.addMouseMovedListener((x, y) -> {
             this.localBrush.updatePosition(x, y);
-            server.refreshView();
+            PixelGrid grid = server.moveBrush(this.localBrush);
+            this.view.updateGrid(grid);
         });
         this.view.addPixelGridEventListener((x, y) -> {
-            msg.getGrid().set(x, y, this.localBrush.getColor());
-            server.refreshView();
+            this.grid.set(x, y, this.localBrush.getColor());
+            PixelGrid grid = server.changeColor(this.grid);
+            this.view.updateGrid(grid);
         });
         this.view.addColorChangedListener(this.localBrush::setColor);
-        UnicastRemoteObject.exportObject(this.view, 0);
-        UnicastRemoteObject.exportObject(this.localBrush, 0);
+
         server.registerClient(new AddClientMessage(this.clientID, this.localBrush, this.view));
     }
 

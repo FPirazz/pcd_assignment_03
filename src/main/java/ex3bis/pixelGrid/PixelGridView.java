@@ -1,4 +1,4 @@
-package ex2.pixelGrid;
+package ex3bis.pixelGrid;
 
 import akka.actor.typed.ActorRef;
 import ex2.actorLogic.msgs.ActorBrushInterface;
@@ -11,19 +11,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class PixelGridView extends JFrame {
     private final VisualiserPanel panel;
-    private final PixelGrid grid;
+    private PixelGrid grid;
     private final int w, h;
     private final List<PixelGridEventListener> pixelListeners;
 	private final List<MouseMovedListener> movedListener;
 	private final List<ColorChangeListener> colorChangeListeners;
     
-    public PixelGridView(PixelGrid grid, BrushManager brushManager, int w, int h, ActorRef<ActorBrushInterface> user){
+    public PixelGridView(PixelGrid grid, BrushManager brushManager, int w, int h){
 		this.grid = grid;
 		this.w = w;
 		this.h = h;
@@ -45,8 +46,8 @@ public class PixelGridView extends JFrame {
 				colorChangeListeners.forEach(l -> l.colorChanged(color.getRGB()));
 			}
 		});
-		addUserButton.addActionListener(e -> user.tell(new AddBrushRequestMsg()));
-		removeUserButton.addActionListener(e -> user.tell(new RemoveUserRequestMsg()));
+		// addUserButton.addActionListener(e -> user.tell(new AddBrushRequestMsg()));
+		// removeUserButton.addActionListener(e -> user.tell(new RemoveUserRequestMsg()));
 		// add panel and a button to the button to change color
 		add(panel, BorderLayout.CENTER);
 		buttonPanel.add(colorChangeButton);
@@ -91,7 +92,13 @@ public class PixelGridView extends JFrame {
 				int dy = h / grid.getNumRows();
 				int col = e.getX() / dx;
 				int row = e.getY() / dy;
-				pixelListeners.forEach(l -> l.selectedCell(col, row));
+				pixelListeners.forEach(l -> {
+					try {
+						l.selectedCell(col, row);
+					} catch (RemoteException ex) {
+						throw new RuntimeException(ex);
+					}
+				});
 			}
 
 			@Override
@@ -115,8 +122,19 @@ public class PixelGridView extends JFrame {
 
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				movedListener.forEach(l -> l.mouseMoved(e.getX(), e.getY()));
+				movedListener.forEach(l -> {
+					try {
+						l.mouseMoved(e.getX(), e.getY());
+					} catch (RemoteException ex) {
+						throw new RuntimeException(ex);
+					}
+				});
 			}
 		};
+	}
+
+	public void updateGrid(PixelGrid grid) {
+		this.grid = grid;
+		this.refresh();
 	}
 }
