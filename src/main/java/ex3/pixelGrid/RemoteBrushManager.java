@@ -1,7 +1,9 @@
 package ex3.pixelGrid;
 
-import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-public class RemoteBrushManager extends BrushManager implements Remote, Serializable {
+public interface RemoteBrushManager extends Remote {
+
+    void addBrush(BrushManager.Brush userBrush) throws RemoteException;
 }

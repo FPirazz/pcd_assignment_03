@@ -1,12 +1,12 @@
 package ex3.pixelGrid;
 
-import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-public class RemotePixelGrid extends PixelGrid implements Remote, Serializable {
+public interface RemotePixelGrid extends Remote {
+    void set(int x, int y, int color) throws RemoteException;
 
+    int getNumColumns() throws RemoteException;
 
-    public RemotePixelGrid(int nRows, int nColumns) {
-        super(nRows, nColumns);
-    }
+    int getNumRows() throws RemoteException;
 }

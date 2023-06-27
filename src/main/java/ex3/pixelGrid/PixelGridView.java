@@ -1,11 +1,5 @@
 package ex3.pixelGrid;
 
-import akka.actor.typed.ActorRef;
-import ex2.actorLogic.msgs.ActorBrushInterface;
-import ex2.actorLogic.msgs.brush.AddBrushRequestMsg;
-import ex2.actorLogic.msgs.brush.RemoveUserRequestMsg;
-import ex3.BrushClient;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
