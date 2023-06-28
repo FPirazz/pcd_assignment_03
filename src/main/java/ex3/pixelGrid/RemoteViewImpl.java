@@ -21,7 +21,10 @@ public class RemoteViewImpl extends JFrame implements RemoteView, Serializable {
 
     private final List<ColorChangeListener> colorChangeListeners;
 
-    public RemoteViewImpl(RemotePixelGridImpl grid, RemoteBrushManagerImpl brushManager, int w, int h, BrushClient user){
+    public RemoteViewImpl(RemotePixelGrid grid,
+                          RemoteBrushManager brushManager,
+                          int w, int h,
+                          BrushClient user){
         this.grid = grid;
         this.w = w;
         this.h = h;
@@ -30,6 +33,7 @@ public class RemoteViewImpl extends JFrame implements RemoteView, Serializable {
         colorChangeListeners = new ArrayList<>();
         setTitle(".:: PixelArt ::.");
         setResizable(false);
+
         panel = new VisualiserPanel(grid, brushManager, w, h);
         panel.addMouseListener(createMouseListener());
         panel.addMouseMotionListener(createMotionListener());
@@ -60,6 +64,7 @@ public class RemoteViewImpl extends JFrame implements RemoteView, Serializable {
         panel.repaint();
     }
 
+    @Override
     public void display() {
         SwingUtilities.invokeLater(() -> {
             this.pack();
@@ -86,14 +91,10 @@ public class RemoteViewImpl extends JFrame implements RemoteView, Serializable {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int dx = 0;
-                try {
-                    dx = w / grid.getNumColumns();
-                } catch (RemoteException ex) {
-                    throw new RuntimeException(ex);
-                }
                 int dy = 0;
                 try {
-                    dy = h / grid.getNumRows();
+                    dx = w / ((RemotePixelGridImpl) grid).getNumColumns();
+                    dy = h / ((RemotePixelGridImpl) grid).getNumRows();
                 } catch (RemoteException ex) {
                     throw new RuntimeException(ex);
                 }

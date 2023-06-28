@@ -41,8 +41,8 @@ public class CanvasServerImpl implements CanvasServer{
     }
 
     @Override
-    public RemoteBrushManagerImpl getBrushManager() throws RemoteException {
-        return (RemoteBrushManagerImpl) this.brushManager;
+    public RemoteBrushManager getBrushManager() throws RemoteException {
+        return this.brushManager;
     }
 
     @Override
@@ -72,8 +72,10 @@ public class CanvasServerImpl implements CanvasServer{
         try {
             RemotePixelGrid pixelGrid = new RemotePixelGridImpl(40, 40);
             UnicastRemoteObject.exportObject(pixelGrid, 0);
+
             RemoteBrushManager brushManager = new RemoteBrushManagerImpl();
             UnicastRemoteObject.exportObject(brushManager, 0);
+
             CanvasServer server = new CanvasServerImpl(brushManager, pixelGrid);
             CanvasServer canvasStub = (CanvasServer) UnicastRemoteObject.exportObject(server, 0);
 

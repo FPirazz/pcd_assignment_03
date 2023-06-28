@@ -8,12 +8,12 @@ import java.io.Serializable;
 public class AddClientMessage implements Serializable {
 
     private final String clientID;
-    private final BrushManager.Brush userBrush;
-    private final RemoteViewImpl userView;
+    private final RemoteBrush userBrush;
+    private final RemoteView userView;
 
     public AddClientMessage(final String userName,
-                       final BrushManager.Brush userBrush,
-                       final RemoteViewImpl userView) {
+                       final RemoteBrush userBrush,
+                       final RemoteView userView) {
         this.clientID = userName;
         this.userBrush = userBrush;
         this.userView = userView;
@@ -21,8 +21,8 @@ public class AddClientMessage implements Serializable {
     public String getClientID() {
         return clientID;
     }
-    public BrushManager.Brush getUserBrush() { return userBrush; }
-    public RemoteViewImpl getUserView() {
+    public RemoteBrush getUserBrush() { return userBrush; }
+    public RemoteView getUserView() {
         return userView;
     }
 

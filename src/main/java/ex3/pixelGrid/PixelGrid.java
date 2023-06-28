@@ -1,5 +1,6 @@
 package ex3.pixelGrid;
 
+import java.rmi.RemoteException;
 import java.util.Arrays;
 
 public class PixelGrid {
@@ -19,20 +20,20 @@ public class PixelGrid {
 		}
 	}
 	
-	public void set(final int x, final int y, final int color) {
+	public void set(final int x, final int y, final int color) throws RemoteException {
 		grid[y][x] = color;
 	}
 	
-	public int get(int x, int y) {
+	public int get(int x, int y) throws RemoteException {
 		return grid[y][x];
 	}
 	
-	public int getNumRows() {
+	public int getNumRows() throws RemoteException {
 		return this.nRows;
 	}
 	
 
-	public int getNumColumns() {
+	public int getNumColumns() throws RemoteException {
 		return this.nColumns;
 	}
 	

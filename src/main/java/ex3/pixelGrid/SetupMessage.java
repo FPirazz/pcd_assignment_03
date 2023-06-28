@@ -8,16 +8,16 @@ import java.io.Serializable;
 
 public class SetupMessage implements Serializable {
 
-    private final RemotePixelGridImpl grid;
-    private final RemoteBrushManagerImpl brushManager;
+    private final RemotePixelGrid grid;
+    private final RemoteBrushManager brushManager;
     private final int height;
     private final int width;
     public SetupMessage(final RemotePixelGrid grid,
                     final RemoteBrushManager brushManager,
                     final int height,
                     final int width) {
-        this.grid = (RemotePixelGridImpl) grid;
-        this.brushManager = (RemoteBrushManagerImpl) brushManager;
+        this.grid = grid;
+        this.brushManager = brushManager;
         this.height = height;
         this.width = width;
     }

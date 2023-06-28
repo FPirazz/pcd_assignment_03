@@ -8,7 +8,7 @@ public interface CanvasServer extends Remote {
     SetupMessage setupClient() throws RemoteException;
 
     RemotePixelGridImpl getGrid() throws RemoteException;
-    RemoteBrushManagerImpl getBrushManager() throws RemoteException;
+    RemoteBrushManager getBrushManager() throws RemoteException;
     int getHeight() throws RemoteException;
     int getWidth() throws RemoteException;
     void registerClient(AddClientMessage msg) throws RemoteException;
