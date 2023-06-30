@@ -8,50 +8,32 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.rmi.RemoteException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RemoteBrushManagerImpl implements RemoteBrushManager {
     private static final int BRUSH_SIZE = 10;
     private static final int STROKE_SIZE = 2;
-    private List<RemoteBrush> brushes = new java.util.ArrayList<>();
+    private Map<String, RemoteBrush> brushes = new HashMap<>();
 
-    public void draw(final Graphics2D g) throws RemoteException{
-        brushes.forEach(brush -> {
-            try {
-                g.setColor(new Color(brush.getColor()));
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            Ellipse2D.Double circle = null;
-            try {
-                circle = new Ellipse2D.Double(brush.getX() - BRUSH_SIZE / 2.0, brush.getY() - BRUSH_SIZE / 2.0, BRUSH_SIZE, BRUSH_SIZE);
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-            // draw the polygon
-            g.fill(circle);
-            g.setStroke(new BasicStroke(STROKE_SIZE));
-            g.setColor(Color.BLACK);
-            g.draw(circle);
-        });
-    }
-
-    public void addBrush(final RemoteBrush brush) {
-        brushes.add(brush);
+    public void addBrush(final String clientID, final RemoteBrush brush) {
+        brushes.put(clientID, brush);
     }
 
     public void removeBrush(final RemoteBrush brush) {
         brushes.remove(brush);
     }
 
+
     @Override
     public List<RemoteBrush>getBrushes() {
-        return brushes;
+        return brushes.values().stream().toList();
     }
 
     @Override
-    public int getColor() throws RemoteException {
-        return 255;
+    public int getColor(String clientID) throws RemoteException {
+        return brushes.get(clientID).getColor();
     }
 
 }

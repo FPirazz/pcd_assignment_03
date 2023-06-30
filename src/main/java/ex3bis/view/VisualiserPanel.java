@@ -66,7 +66,6 @@ public class VisualiserPanel extends JPanel {
     private void drawBrushes(Graphics2D g) throws RemoteException {
         brushManager.getBrushes().forEach(brush -> {
             try {
-                System.out.println(brush.getColor() + brush.getX() + brush.getY());
                 g.setColor(new java.awt.Color(brush.getColor()));
                 var circle = new java.awt.geom.Ellipse2D.Double(brush.getX() - BRUSH_SIZE / 2.0, brush.getY() - BRUSH_SIZE / 2.0, BRUSH_SIZE, BRUSH_SIZE);
                 // draw the polygon

@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface RemoteBrushManager extends Remote {
 
-    void addBrush(final RemoteBrush brush) throws RemoteException;
+    void addBrush(final String clientID, final RemoteBrush brush) throws RemoteException;
 
     void removeBrush(final RemoteBrush brush) throws RemoteException;
 
     List<RemoteBrush> getBrushes() throws RemoteException;
 
-    int getColor() throws RemoteException;
+    int getColor(String clientID) throws RemoteException;
 }

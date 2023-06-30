@@ -1,5 +1,6 @@
 package ex3bis.view;
 
+import ex3bis.PixelArtClient;
 import ex3bis.view.interfaces.RemoteBrushManager;
 import ex3bis.view.interfaces.RemotePixelGrid;
 import ex3bis.view.listeners.ColorChangeListener;
@@ -12,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +54,14 @@ public class PixelGridView extends JFrame {
 				});
 			}
 		});
-		addUserButton.addActionListener(e -> System.out.println());
-		removeUserButton.addActionListener(e -> System.out.println());
+		addUserButton.addActionListener(e -> {
+			new Thread(() -> {
+				PixelArtClient.main(new String[]{});
+			}).start();
+		});
+		removeUserButton.addActionListener(e -> {
+
+		});
 		// add panel and a button to the button to change color
 		add(panel, BorderLayout.CENTER);
 		var buttonPanel = new JPanel();
