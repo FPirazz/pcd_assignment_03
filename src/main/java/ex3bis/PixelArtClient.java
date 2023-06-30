@@ -38,6 +38,7 @@ public class PixelArtClient {
 
         this.view.addMouseMovedListener((x, y) -> {
             this.localBrush.updatePosition(x, y);
+            this.brushManager.updateBrushPosition(this.clientID, x, y);
             this.view.refresh();
         });
 
@@ -62,8 +63,6 @@ public class PixelArtClient {
 
     public static void main(String args[]) {
         try {
-
-
             // Create the client application
             new PixelArtClient();
         } catch (Exception e) {

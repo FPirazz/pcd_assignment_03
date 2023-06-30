@@ -36,4 +36,9 @@ public class RemoteBrushManagerImpl implements RemoteBrushManager {
         return brushes.get(clientID).getColor();
     }
 
+    @Override
+    public void updateBrushPosition(String clientID, int x, int y) throws RemoteException {
+        brushes.get(clientID).updatePosition(x, y);
+    }
+
 }

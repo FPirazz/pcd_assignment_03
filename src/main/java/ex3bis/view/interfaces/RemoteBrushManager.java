@@ -14,4 +14,6 @@ public interface RemoteBrushManager extends Remote {
     List<RemoteBrush> getBrushes() throws RemoteException;
 
     int getColor(String clientID) throws RemoteException;
+
+    void updateBrushPosition(String clientID, int x, int y) throws RemoteException;
 }
