@@ -38,6 +38,8 @@ public class PixelGridView extends JFrame {
         panel.addMouseListener(createMouseListener());
 		panel.addMouseMotionListener(createMotionListener());
 		var colorChangeButton = new JButton("Change color");
+		var addUserButton = new JButton("Add User");
+		var removeUserButton = new JButton("Remove User");
 		colorChangeButton.addActionListener(e -> {
 			var color = JColorChooser.showDialog(this, "Choose a color", Color.BLACK);
 			if (color != null) {
@@ -50,12 +52,17 @@ public class PixelGridView extends JFrame {
 				});
 			}
 		});
+		addUserButton.addActionListener(e -> System.out.println());
+		removeUserButton.addActionListener(e -> System.out.println());
 		// add panel and a button to the button to change color
 		add(panel, BorderLayout.CENTER);
-		add(colorChangeButton, BorderLayout.SOUTH);
+		var buttonPanel = new JPanel();
+		buttonPanel.add(colorChangeButton);
+		buttonPanel.add(addUserButton);
+		buttonPanel.add(removeUserButton);
+		add(buttonPanel, BorderLayout.SOUTH);
         getContentPane().add(panel);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		hideCursor();
     }
     
     public void refresh(){

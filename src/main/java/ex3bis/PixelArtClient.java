@@ -41,12 +41,11 @@ public class PixelArtClient {
 
         this.view.addColorChangedListener(this.localBrush::setColor);
 
-        new Timer(41, e -> {   // 1000 / 41 = roughly 24 refreshes per second
+        new Timer(1, e -> {   // 1000 / 41 = roughly 24 refreshes per second
             this.view.refresh();
         }).start();
 
         this.view.display();
-
 
     }
 
