@@ -9,7 +9,7 @@ public interface RemoteBrushManager extends Remote {
 
     void addBrush(final String clientID, final RemoteBrush brush) throws RemoteException;
 
-    void removeBrush(final RemoteBrush brush) throws RemoteException;
+    void removeBrush(final String clientID) throws RemoteException;
 
     List<RemoteBrush> getBrushes() throws RemoteException;
 

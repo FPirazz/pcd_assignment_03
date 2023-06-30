@@ -31,7 +31,7 @@ public class PixelArtClient {
         RemotePixelGrid pixelGrid = (RemotePixelGrid) registry.lookup("pixelGrid");
         this.brushManager = brushManager;
         this.pixelGrid = pixelGrid;
-        this.view = new PixelGridView(this.pixelGrid, this.brushManager, 800, 800);
+        this.view = new PixelGridView(this.clientID, this.pixelGrid, this.brushManager, 800, 800);
 
         this.localBrush = new RemoteBrushImpl(clientID, ex2.actorLogic.utilities.Utilities.randomColor());
         brushManager.addBrush(this.clientID, this.localBrush);
@@ -55,14 +55,13 @@ public class PixelArtClient {
         new Timer(1, e -> {
             this.view.refresh();
         }).start();
-
+        this.view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.view.display();
 
     }
 
     public static void main(String args[]) {
         try {
-            // Obtain a reference to the RMI registry
 
 
             // Create the client application

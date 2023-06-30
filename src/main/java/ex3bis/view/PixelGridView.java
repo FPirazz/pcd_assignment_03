@@ -26,8 +26,10 @@ public class PixelGridView extends JFrame {
     private final List<PixelGridEventListener> pixelListeners;
 	private final List<MouseMovedListener> movedListener;
 	private final List<ColorChangeListener> colorChangeListeners;
+	private final String clientID;
     
-    public PixelGridView(RemotePixelGrid grid, RemoteBrushManager brushManager, int w, int h){
+    public PixelGridView(String clientID, RemotePixelGrid grid, RemoteBrushManager brushManager, int w, int h){
+		this.clientID = clientID;
 		this.grid = grid;
 		this.w = w;
 		this.h = h;
@@ -60,7 +62,12 @@ public class PixelGridView extends JFrame {
 			}).start();
 		});
 		removeUserButton.addActionListener(e -> {
-
+			try {
+				this.dispose();
+				brushManager.removeBrush(this.clientID);
+			} catch (RemoteException ex) {
+				throw new RuntimeException(ex);
+			}
 		});
 		// add panel and a button to the button to change color
 		add(panel, BorderLayout.CENTER);

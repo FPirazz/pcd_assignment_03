@@ -21,10 +21,10 @@ public class RemoteBrushManagerImpl implements RemoteBrushManager {
         brushes.put(clientID, brush);
     }
 
-    public void removeBrush(final RemoteBrush brush) {
-        brushes.remove(brush);
+    @Override
+    public void removeBrush(String clientID) throws RemoteException {
+        brushes.remove(clientID);
     }
-
 
     @Override
     public List<RemoteBrush>getBrushes() {
