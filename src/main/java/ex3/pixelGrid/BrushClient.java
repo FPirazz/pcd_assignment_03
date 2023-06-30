@@ -29,8 +29,6 @@ public class BrushClient {
                 msg.getHeight() / 2,
                 Utilities.randomColor());
 
-        System.out.println(msg.getGrid().getClass());
-
         this.view = new RemoteViewImpl(msg.getGrid(),
                 msg.getBrushManager(),
                 msg.getWidth(),

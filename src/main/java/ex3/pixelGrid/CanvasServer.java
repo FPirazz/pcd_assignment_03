@@ -6,7 +6,6 @@ import java.rmi.RemoteException;
 public interface CanvasServer extends Remote {
 
     SetupMessage setupClient() throws RemoteException;
-
     RemotePixelGridImpl getGrid() throws RemoteException;
     RemoteBrushManager getBrushManager() throws RemoteException;
     int getHeight() throws RemoteException;

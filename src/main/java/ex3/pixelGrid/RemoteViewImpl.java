@@ -60,6 +60,7 @@ public class RemoteViewImpl extends JFrame implements RemoteView, Serializable {
         hideCursor();
     }
 
+    @Override
     public void refresh(){
         panel.repaint();
     }
