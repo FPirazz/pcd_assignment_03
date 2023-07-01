@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RemoteBrushManagerImpl implements RemoteBrushManager {
-    private static final int BRUSH_SIZE = 10;
-    private static final int STROKE_SIZE = 2;
+
     private Map<String, RemoteBrush> brushes = new HashMap<>();
 
     public void addBrush(final String clientID, final RemoteBrush brush) {

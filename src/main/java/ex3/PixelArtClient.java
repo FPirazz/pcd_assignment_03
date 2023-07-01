@@ -28,7 +28,6 @@ public class PixelArtClient {
         brushManager.addBrush(clientID, localBrush);
 
         view.addMouseMovedListener((x, y) -> {
-            localBrush.updatePosition(x, y);
             brushManager.updateBrushPosition(clientID, x, y);
             view.refresh();
         });

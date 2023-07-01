@@ -22,7 +22,7 @@ public class RemotePixelGridImpl implements RemotePixelGrid {
 		}
 	}
 	
-	public void set(final int x, final int y, final int color) throws RemoteException {
+	synchronized public void set(final int x, final int y, final int color) throws RemoteException {
 		grid[y][x] = color;
 	}
 	
