@@ -43,9 +43,9 @@ public class PixelArtClient {
             brushManager.addBrush(clientID, localBrush);
         });
 
-        /*new Timer(50, e -> {
+        new Timer(1000, e -> {
             view.refresh();
-        }).start();*/
+        }).start();
 
 
         view.setTitle("PixelArt - " + clientID);
