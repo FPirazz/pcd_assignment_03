@@ -178,7 +178,7 @@
                         android:paddingBottom="8dp"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textSize="@dimen/video_item_detail_title_text_size"
-                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed a ultricies ex. Integer sit amet sodales risus. Duis non mi et urna pretium bibendum. Nunc eleifend est quis ipsum porttitor egestas. Sed facilisis, nisl quis eleifend pellentesque, orci metus egestas dolor, at accumsan eros metus quis libero." />
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed a ultricies ex3. Integer sit amet sodales risus. Duis non mi et urna pretium bibendum. Nunc eleifend est quis ipsum porttitor egestas. Sed facilisis, nisl quis eleifend pellentesque, orci metus egestas dolor, at accumsan eros metus quis libero." />
 
                     <ImageView
                         android:id="@+id/detail_toggle_secondary_controls_view"

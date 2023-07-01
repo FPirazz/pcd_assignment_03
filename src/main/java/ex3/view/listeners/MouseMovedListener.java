@@ -1,4 +1,4 @@
-package ex3.pixelGrid;
+package ex3.view.listeners;
 
 import java.rmi.RemoteException;
 

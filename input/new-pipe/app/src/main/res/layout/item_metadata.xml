@@ -28,6 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/metadata_type_view"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ultricies ex. Integer sit amet sodales risus. Duis non mi et urna pretium bibendum." />
+        tools:text="Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ultricies ex3. Integer sit amet sodales risus. Duis non mi et urna pretium bibendum." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

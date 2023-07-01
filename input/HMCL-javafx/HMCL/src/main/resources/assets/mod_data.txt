@@ -225,7 +225,7 @@ waila;246;;Waila,waila;高亮信息拓展;What am I looking at;Waila
 chaoscraft-2;247;; Chaos_Technology;混沌工艺;ChaosCraft;CC
 scenter-mod;248;;;矿物追踪;Scenter;
 ;249;401486;otaku_craft;御宅工艺;Otaku Craft;OtC
-ex-nihilo;250;195925;exnihilo;无中生有;Ex Nihilo;ExN
+ex3-nihilo;250;195925;exnihilo;无中生有;Ex Nihilo;ExN
 reactorcraft;251;;ReactorCraft;反应堆工艺;ReactorCraft;ReC
 bctools;252;;BCTools;BC扩展：更多工具;Buildcraft Tools;
 additional-buildcraft-objects;253;;;更多管道;Additional Buildcraft Objects;
@@ -318,7 +318,7 @@ symcalc;343;;symcalc;对称度运算仪;Symcalc;
 iguanas-tinker-tweaks;345;425981;;匠魂强化;TiC Tweaks;
 jabba;346;;JABBA;更好的储物桶;Just Another Better Barrel Attempt;JABBA
 mcheli-minecraft-helicopter-mod;347;;mcheli;MC直升机;MC Helicopter MOD;MCheli
-ex-aliquo;348;;exaliquo;Ex Aliquo;;
+ex3-aliquo;348;;exaliquo;Ex Aliquo;;
 steves-carts-2;350;;StevesCarts;史蒂夫矿车2;Steve's Carts 2;SC2
 mariculture;351;321251;Mariculture;海洋物语;Mariculture;
 evilcraft;352;;evilcraft,evilcraftcompat;邪恶工艺;EvilCraft;EC
@@ -390,7 +390,7 @@ ding;428;;ding;界面进入提醒;Ding;
 ender-utilities;429;;enderutilities;末影设备;Ender Utilities;
 magical-crops;430;440898;magicalcrops,magicalcropsarmour;魔法作物;Magical Crops;
 headcrumbs;431;;headcrumbs;更多头颅;Headcrumbs;
-ex-astris;432;;exastris;星辉生万物;Ex Astris;EA
+ex3-astris;432;;exastris;星辉生万物;Ex Astris;EA
 xelitez-frostcraft;433;;XEZFrostcraft;冰冻工艺;FrostCraft;
 hardcore-ender-expansion;434;456093;HardcoreEnderExpansion;极限末地生存;Hardcore Ender Expansion;HEE
 more-fun-quicksand-mod;435;449666;MFQM;更多流沙;More Fun Quicksand Mod;MFQM
@@ -444,7 +444,7 @@ zoology;481;;;动物学;Zoology;
 thaumic-revelations;483;;trevelations;神秘启示录;Thaumic Revelations;
 ;484;604292;;更多燃料;MoreFuel;
 warp-book;485;;warpbook;传送书;Warp Book;WB
-ex-compressum;486;676165;excompressum;压缩工具;Ex Compressum;
+ex3-compressum;486;676165;excompressum;压缩工具;Ex Compressum;
 simply-jetpacks;487;;simplyjetpacks;简易喷气背包;Simply Jetpacks;SJ
 blood-arsenal;488;958995;BloodArsenal,bloodarsenal;血液兵工厂;Blood Arsenal;
 sim-u-kraft;489;;ashjacksimukraftreloaded;模拟城市;Sim-U-Kraft;
@@ -659,7 +659,7 @@ celestial-craft;710;;;天体;Celestial Craft;
 lost-thaumaturgy;711;;;失落神秘;Pengu's Lost Thaumaturgy;
 compact-machines;712;;compactmachines3,cm2,compactmachines;更多空间/压缩空间;Compact Machines;CM
 ;713;466581;uc;实用煤炭;UsefulCoals;UfC
-ex-nihilo-omnia;714;631637;exnihiloomnia;无中生有-世间万物;Ex Nihilo Omnia;
+ex3-nihilo-omnia;714;631637;exnihiloomnia;无中生有-世间万物;Ex Nihilo Omnia;
 last-sword-you-will-ever-need-mo;715;;theonlychaosmodforyou;最终之剑;The Last Sword You Will Ever Need Mod;
 the-last-sword-you-will-ever-need-reboot;716;;;最终之剑：重生;The Last Sword You Will Ever Need Reboot;
 ftb-library-legacy-forge;718;;ftblib,FTBL,ftbl;FTB Library（旧版）;FTB Library (Forge) (Legacy);FTBL
@@ -874,7 +874,7 @@ minenautica;933;;Minenautica;Minenautica;;
 improved-extraction;934;;improvedextraction;矿物获取改进;Improved Extraction;
 ecology-mod;935;;;生态学;Ecology Mod;
 cakeisalie-mod;936;;CakeIsALie;蛋糕是个谎言;CakeIsALie;
-ex-nihilo-adscensio;937;;;无中生有:Adscensio;Ex Nihilo Adscensio;
+ex3-nihilo-adscensio;937;;;无中生有:Adscensio;Ex Nihilo Adscensio;
 bookshelf;938;;bookshelf,bookshelfapi;Bookshelf;;
 ;939;732164;mooncakecraft;月饼工坊;Mooncake Craft;
 random-things;940;938101;randomthings,RandomThings;随意作品;Random Things;RT
@@ -892,7 +892,7 @@ journey-to-gensokyo;951;;;幻想乡之旅;Journey to Gensokyo;
 danmakucore;952;;danmakucore;弹幕核心;DanmakuCore;
 angel-of-vengeance;953;;aov;复仇天使;Angel of Vengeance;AoV
 tammodized;954;;tammodized;TamModized;;
-ex-nihilo-creatio;955;727225;exnihilocreatio;无中生有: 创世;Ex Nihilo: Creatio;ExNC
+ex3-nihilo-creatio;955;727225;exnihilocreatio;无中生有: 创世;Ex Nihilo: Creatio;ExNC
 thaumcraft;956;776706;thaumcraft;神秘时代6;Thaumcraft 6;TC6
 colossal-chests;957;;colossalchests;巨型箱子;Colossal Chests;
 auto-pickup;958;;autopickup;自动拾取;Auto Pickup;
@@ -1399,7 +1399,7 @@ tick-dynamic;1477;;tickdynamic;动态Tick;Tick-Dynamic;
 surge;1478;923335;surge;潮涌;Surge;
 more-avaritia;1479;;moreavaritia;More Avaritia;;
 ai-improvements;1480;;aiimprovements;AI改进;AI Improvements;
-project-ex;1481;1168453;projectex;等价交换升级;Project EX;
+project-ex3;1481;1168453;projectex;等价交换升级;Project EX;
 xaeros-world-map;1483;['616156'];xaeroworldmap_core,xaeroworldmap;Xaero的世界地图;Xaero's World Map;XWM
 wizardry-mod;1484;910980;wizardry;巫师艺术;Wizardry;
 fastfurnace;1485;;fastfurnace;熔炉性能优化;FastFurnace;
@@ -1613,7 +1613,7 @@ huajiage-infinite-galaxy;1696;862800;;滑稽纪元II:无尽星河;Huaji Age II:I
 ;1697;857865;anothercommonbugfix;另一个通用Bug修复;Another Common Bug Fix;ACBF
 cqrepoured;1698;;cqrepoured;寻找巧克力重铸版;Chocolate Quest Repoured;CQR
 fabricproxy;1699;;fabricproxy;Fabric群组支持;FabricProxy;
-ex-sartagine;1700;780936;;锅具;Ex Sartagine;
+ex3-sartagine;1700;780936;;锅具;Ex Sartagine;
 xaeros-minimap;1701;545145;xaerominimap,xaerominimap_core;Xaero的小地图;Xaero's Minimap;
 everlastingabilities-potioncore;1702;;;永恒能力-药水核心;EverlastingAbilities-PotionCore;
 optifabric;1703;1113013;;OptiFabric;;
@@ -1959,7 +1959,7 @@ engineers-workshop;2059;;engineersworkshop;工程师工作站;Engineers Workshop
 the_legend_of_the_brave;2060;916377;thelegendofthebraveii;勇者传说;The Legend of The Brave;
 twerk-sim-2k16;2061;;ts2k16;Twerk Sim 2K16;;
 fart-generator;2062;;;屁能发电机;Fart Energy Generator;
-ex-nihilo-fabrico;2063;;;无中生有：Fabrico;Ex Nihilo Fabrico;
+ex3-nihilo-fabrico;2063;;;无中生有：Fabrico;Ex Nihilo Fabrico;
 holoinventory;2064;;holoinventory;物品显示/物品清单;HoloInventory;
 reactor-stuff;2065;927559;reactor_stuff;反应堆材料;Reactor Stuff;
 traitors-better-swampland-mod;2066;;swampland;更好的沼泽;Traitor's Better Swamplands Mod;
@@ -2753,7 +2753,7 @@ arrows-ignite-tnt;2877;;;Arrows Ignite TNT;;
 enderite-mod-for-fabric;2878;;enderitemod;末影合金;Enderite Mod;
 dynamic-trees-industrial-craft-2;2879;;dynamictreesic2;动态的树：工业2附属;Dynamic Trees - Industrial Craft 2;
 dynamic-trees-tinkers-construct;2880;;dynamictreestconstruct;动态的树：匠魂附属;Dynamic Trees - Tinker's Construct;
-ex-nihilo-sequentia;2881;;exnihilosequentia;无中生有：传承;Ex Nihilo: Sequentia;
+ex3-nihilo-sequentia;2881;;exnihilosequentia;无中生有：传承;Ex Nihilo: Sequentia;
 toms-storage-fabric;2882;1085400;toms_storage;汤姆的简易存储;Tom's Simple Storage Mod;
 fishing-real;2883;;fishingreal;更真实的钓鱼;Fishing Real;
 maessentials;2884;;;Ma Essentials;;
@@ -3648,7 +3648,7 @@ more-dragon-eggs;3793;;moredragoneggs;更多的龙蛋;More Dragon Eggs;
 more-red;3794;;More_Red;更多红石;More Red;
 ;3795;;;Herobrine;;
 craftable-items;3797;1166161;;Un-Craftable;;
-ex-nihilo-sequentia-mekanism-addon;3798;;exnihilomekanism;无中生有：传承 - 通用机械扩展;Ex Nihilo: Sequentia - Mekanism Addon;
+ex3-nihilo-sequentia-mekanism-addon;3798;;exnihilomekanism;无中生有：传承 - 通用机械扩展;Ex Nihilo: Sequentia - Mekanism Addon;
 panorama;3799;;panorama;全景图;Panorama;
 bgcore;3800;;bgcore;BGCore;;
 induction-charger;3801;;InductionCharger;Induction Charger;;
@@ -3658,7 +3658,7 @@ burden-of-time;3804;;burdenoftime;Burden Of Time;;
 gamemenumodoption;3805;;gamemenumodoption;游戏菜单模组设定;Game Menu Mod Option;
 game-menu-remove-gfarb;3806;;gamemenuremovegfarb;游戏菜单移除GFARB;Game Menu Remove GFARB;
 randomdeathmessage;3807;;randomdeathmessage;随机死亡消息;RandomDeathMessage;
-ex-nihilo-sequentia-ae2-addon;3808;;exnihiloae;无中生有：传承 - 应用能源2扩展;Ex Nihilo: Sequentia - AE2 Addon;
+ex3-nihilo-sequentia-ae2-addon;3808;;exnihiloae;无中生有：传承 - 应用能源2扩展;Ex Nihilo: Sequentia - AE2 Addon;
 sweetmagic;3809;1255490;sweetmagic;甜蜜与魔法;SweetMagic;
 astromine-discoveries;3810;;astromine;天体矿工：探索;Astromine: Discoveries;
 azuredooms-angel-ring;3811;;doomangelring;AzureDoom的天使指环;AzureDooms Angel Ring;
@@ -3819,9 +3819,9 @@ time-in-a-bottle-standalone;3971;;tiab;时间之瓶;Time in a bottle standalone;
 compressed-grass;3973;;gm;压缩草;Compressed Grass;
 applepie;3974;;ApplePie;苹果派;ApplePie;
 doles-mod;3975;;;Dole's Mod;;
-ex-nihilo-sequentia-thermal-addon;3976;;;无中生有：传承 - 热力扩展;Ex Nihilo: Sequentia - Thermal Addon;
-ex-naturae;3977;;exnaturae;无中生有：传承 - 植物魔法扩展;Ex Naturae;
-ex-nihilo-sequentia-tinkers-addon;3978;;;无中生有：传承 - 匠魂扩展;Ex Nihilo: Sequentia - Tinkers Addon;
+ex3-nihilo-sequentia-thermal-addon;3976;;;无中生有：传承 - 热力扩展;Ex Nihilo: Sequentia - Thermal Addon;
+ex3-naturae;3977;;exnaturae;无中生有：传承 - 植物魔法扩展;Ex Naturae;
+ex3-nihilo-sequentia-tinkers-addon;3978;;;无中生有：传承 - 匠魂扩展;Ex Nihilo: Sequentia - Tinkers Addon;
 iron-jetpacks;3979;;ironjetpacks;Iron Jetpacks;;
 custom-discs;3980;1256463;discs;自定义唱片;Custom Discs;
 playtime-counter-fabric;3981;;playtime_count;游戏时长计数器;Playtime Counter;
@@ -4705,7 +4705,7 @@ create-confectionery;4871;;create_confectionery;机械动力甜食;Create Confec
 ;4873;;random-botany;随意植物学;RandomBotany;RaBo
 ;4874;1259736;elementalenhancement;元素强化;Elemental Enhancement;EET
 rotten-piglins-mod;4875;;rotten_piglins;Rotten Piglins Mod;;
-ex-nihilo-random;4876;;ex_nihilo_random;无中生有：随想;Ex Nihilo: Random;ExNR
+ex3-nihilo-random;4876;;ex_nihilo_random;无中生有：随想;Ex Nihilo: Random;ExNR
 ;4877;;lantern;术使提灯;Conjurer's Lantern;
 ;4878;;gespenst;幽灵;Gespenst;
 fabrictailor;4879;;fabrictailor;离线皮肤切换;Fabric Tailor;
@@ -4849,7 +4849,7 @@ spyglass-zoom;5016;;spyzoom,原版拓展;望远镜变焦;Spyglass Zoom;
 npc-variety-port;5017;;npcvariety;NPC变体;NPC Variety;
 just-enough-effects;5018;;effectinfo;Just Enough Effects;;
 incorporeal-2-rhododendrite;5019;;incorporeal,rhododendrite;幻想多媒体2;Incorporeal 2 + Rhododendrite;
-;5020;;ex.invoker;祈雨三叉戟;Invoker Trident;
+;5020;;ex3.invoker;祈雨三叉戟;Invoker Trident;
 einsteins-library;5021;;;Einstein's Library;;
 worldshape;5022;;worldshape;Worldshape;;
 rslargepatterns;5023;;rslargepatterns;精致存储大样板;Refined Storage Large Patterns;

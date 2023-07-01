@@ -1,6 +1,5 @@
-package ex3bis.view.listeners;
+package ex3.view.listeners;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface ColorChangeListener {

@@ -1,7 +1,7 @@
-package ex3bis;
+package ex3;
 
-import ex3bis.view.*;
-import ex3bis.view.interfaces.*;
+import ex3.view.*;
+import ex3.view.interfaces.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;

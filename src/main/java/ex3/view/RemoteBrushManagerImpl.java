@@ -1,13 +1,10 @@
-package ex3bis.view;
+package ex3.view;
 
 
-import ex3bis.view.interfaces.RemoteBrush;
-import ex3bis.view.interfaces.RemoteBrushManager;
+import ex3.view.interfaces.RemoteBrush;
+import ex3.view.interfaces.RemoteBrushManager;
 
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
 import java.rmi.RemoteException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

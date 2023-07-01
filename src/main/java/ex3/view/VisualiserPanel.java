@@ -1,7 +1,7 @@
-package ex3bis.view;
+package ex3.view;
 
-import ex3bis.view.interfaces.RemoteBrushManager;
-import ex3bis.view.interfaces.RemotePixelGrid;
+import ex3.view.interfaces.RemoteBrushManager;
+import ex3.view.interfaces.RemotePixelGrid;
 
 import javax.swing.*;
 import java.awt.*;

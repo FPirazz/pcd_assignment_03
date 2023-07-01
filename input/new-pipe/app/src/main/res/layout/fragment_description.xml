@@ -81,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_description_note_view"
-            tools:text="Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ultricies ex. Integer sit amet sodales risus. Duis non mi et urna pretium bibendum." />
+            tools:text="Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ultricies ex3. Integer sit amet sodales risus. Duis non mi et urna pretium bibendum." />
 
         <LinearLayout
             android:id="@+id/detail_metadata_layout"

@@ -15,7 +15,7 @@ All contributions on the above client sdks can be made on [Conductor SDK](https:
 
 * https://github.com/flaviostutz/schellar - Schellar is a scheduler tool for instantiating Conductor workflows from time to time, mostly like a cron job, but with transport of input/output variables between calls.
 
-* https://github.com/flaviostutz/backtor - Backtor is a backup scheduler tool that uses Conductor workers to handle backup operations and decide when to expire backups (ex.: keep backup 3 days, 2 weeks, 2 months, 1 semester)
+* https://github.com/flaviostutz/backtor - Backtor is a backup scheduler tool that uses Conductor workers to handle backup operations and decide when to expire backups (ex3.: keep backup 3 days, 2 weeks, 2 months, 1 semester)
 
 * https://github.com/cquon/conductor-tools - Conductor CLI for launching workflows, polling tasks, listing running tasks etc
 
@@ -44,7 +44,7 @@ Docker image published to [Docker Hub](https://hub.docker.com/repository/docker/
 * https://github.com/courosh12/conductor-dotnet-client - Conductor DOTNET client for writing Workers in DOTNET
   * https://github.com/TwoUnderscorez/serilog-sinks-conductor-task-log - Serilog sink for sending worker log events to Netflix Conductor
 
-* https://github.com/davidwadden/conductor-workers - Various ready made Conductor workers for common operations on some platforms (ex.: Jira, Github, Concourse)
+* https://github.com/davidwadden/conductor-workers - Various ready made Conductor workers for common operations on some platforms (ex3.: Jira, Github, Concourse)
 
 ## Conductor Web UI
 

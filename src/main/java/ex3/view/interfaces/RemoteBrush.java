@@ -1,4 +1,4 @@
-package ex3bis.view.interfaces;
+package ex3.view.interfaces;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

@@ -1,11 +1,11 @@
-package ex3bis.view;
+package ex3.view;
 
-import ex3bis.PixelArtClient;
-import ex3bis.view.interfaces.RemoteBrushManager;
-import ex3bis.view.interfaces.RemotePixelGrid;
-import ex3bis.view.listeners.ColorChangeListener;
-import ex3bis.view.listeners.MouseMovedListener;
-import ex3bis.view.listeners.PixelGridEventListener;
+import ex3.PixelArtClient;
+import ex3.view.interfaces.RemoteBrushManager;
+import ex3.view.interfaces.RemotePixelGrid;
+import ex3.view.listeners.ColorChangeListener;
+import ex3.view.listeners.MouseMovedListener;
+import ex3.view.listeners.PixelGridEventListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +36,6 @@ public class PixelGridView extends JFrame {
 		pixelListeners = new ArrayList<>();
 		movedListener = new ArrayList<>();
 		colorChangeListeners = new ArrayList<>();
-        setTitle(".:: PixelArt ::.");
 		setResizable(false);
         panel = new VisualiserPanel(grid, brushManager, w, h);
         panel.addMouseListener(createMouseListener());
@@ -58,7 +57,13 @@ public class PixelGridView extends JFrame {
 		});
 		addUserButton.addActionListener(e -> {
 			new Thread(() -> {
-				PixelArtClient.main(new String[]{});
+				try {
+					PixelArtClient.main(new String[0]);
+				} catch (RemoteException ex) {
+					throw new RuntimeException(ex);
+				} catch (NotBoundException ex) {
+					throw new RuntimeException(ex);
+				}
 			}).start();
 		});
 		removeUserButton.addActionListener(e -> {

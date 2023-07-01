@@ -1,20 +1,22 @@
-package ex3.pixelGrid;
+package ex3.view;
+
+import ex3.view.interfaces.RemotePixelGrid;
 
 import java.rmi.RemoteException;
 import java.util.Arrays;
 
-public class PixelGrid {
+public class RemotePixelGridImpl implements RemotePixelGrid {
 	private final int nRows;
 	private final int nColumns;
 	private final int[][] grid;
 	
-	public PixelGrid(final int nRows, final int nColumns) {
+	public RemotePixelGridImpl(final int nRows, final int nColumns) {
 		this.nRows = nRows;
 		this.nColumns = nColumns;
 		grid = new int[nRows][nColumns];
 	}
 
-	public void clear() {
+	public void clear() throws RemoteException {
 		for (int i = 0; i < nRows; i++) {
 			Arrays.fill(grid[i], 0);
 		}
@@ -31,7 +33,6 @@ public class PixelGrid {
 	public int getNumRows() throws RemoteException {
 		return this.nRows;
 	}
-	
 
 	public int getNumColumns() throws RemoteException {
 		return this.nColumns;
