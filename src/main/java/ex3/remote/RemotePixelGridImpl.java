@@ -16,25 +16,25 @@ public class RemotePixelGridImpl implements RemotePixelGrid {
 		grid = new int[nRows][nColumns];
 	}
 
-	public void clear() throws RemoteException {
+	public synchronized void clear() throws RemoteException {
 		for (int i = 0; i < nRows; i++) {
 			Arrays.fill(grid[i], 0);
 		}
 	}
 	
-	synchronized public void set(final int x, final int y, final int color) throws RemoteException {
+	public synchronized void set(final int x, final int y, final int color) throws RemoteException {
 		grid[y][x] = color;
 	}
 	
-	public int get(int x, int y) throws RemoteException {
+	public synchronized int get(int x, int y) throws RemoteException {
 		return grid[y][x];
 	}
 	
-	public int getNumRows() throws RemoteException {
+	public synchronized int getNumRows() throws RemoteException {
 		return this.nRows;
 	}
 
-	public int getNumColumns() throws RemoteException {
+	public synchronized int getNumColumns() throws RemoteException {
 		return this.nColumns;
 	}
 	

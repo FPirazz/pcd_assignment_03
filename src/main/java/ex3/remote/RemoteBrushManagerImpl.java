@@ -18,39 +18,39 @@ public class RemoteBrushManagerImpl implements RemoteBrushManager {
 
 
     @Override
-    public void addBrush(String clientID, RemoteBrush brush) throws RemoteException {
+    public synchronized void addBrush(String clientID, RemoteBrush brush) throws RemoteException {
         brushes.put(clientID, brush);
         sendNotification();
     }
 
     @Override
-    public void removeBrush(String clientID) throws RemoteException {
+    public synchronized void removeBrush(String clientID) throws RemoteException {
         brushes.remove(clientID);
         sendNotification();
     }
 
     @Override
-    public List<RemoteBrush>getBrushes() {
+    public synchronized List<RemoteBrush>getBrushes() {
         return brushes.values().stream().toList();
     }
 
     @Override
-    public int getColor(String clientID) throws RemoteException {
+    public synchronized int getColor(String clientID) throws RemoteException {
         return brushes.get(clientID).getColor();
     }
 
     @Override
-    public void updateBrushPosition(String clientID, int x, int y) throws RemoteException {
+    public synchronized void updateBrushPosition(String clientID, int x, int y) throws RemoteException {
         brushes.get(clientID).updatePosition(x, y);
         this.sendNotification();
     }
 
     @Override
-    public void addCanvas(LocalCanvas canvas) throws RemoteException {
+    public synchronized void addCanvas(LocalCanvas canvas) throws RemoteException {
         this.canvasesList.add(canvas);
     }
 
-    private void sendNotification() {
+    private synchronized void sendNotification() {
         canvasesList.forEach(c -> {
             try {
                 c.notifyChange();
