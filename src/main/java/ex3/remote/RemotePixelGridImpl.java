@@ -1,6 +1,6 @@
-package ex3.view;
+package ex3.remote;
 
-import ex3.view.interfaces.RemotePixelGrid;
+import ex3.remote.interfaces.RemotePixelGrid;
 
 import java.rmi.RemoteException;
 import java.util.Arrays;

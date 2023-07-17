@@ -1,10 +1,12 @@
-package ex3.view;
+package ex3.remote;
 
 
-import ex3.view.interfaces.RemoteBrush;
-import ex3.view.interfaces.RemoteBrushManager;
+import ex3.remote.interfaces.LocalCanvas;
+import ex3.remote.interfaces.RemoteBrush;
+import ex3.remote.interfaces.RemoteBrushManager;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,14 +14,19 @@ import java.util.Map;
 public class RemoteBrushManagerImpl implements RemoteBrushManager {
 
     private Map<String, RemoteBrush> brushes = new HashMap<>();
+    private List<LocalCanvas> canvasesList = new ArrayList<>();
 
-    public void addBrush(final String clientID, final RemoteBrush brush) {
+
+    @Override
+    public void addBrush(String clientID, RemoteBrush brush) throws RemoteException {
         brushes.put(clientID, brush);
+        sendNotification();
     }
 
     @Override
     public void removeBrush(String clientID) throws RemoteException {
         brushes.remove(clientID);
+        sendNotification();
     }
 
     @Override
@@ -35,6 +42,22 @@ public class RemoteBrushManagerImpl implements RemoteBrushManager {
     @Override
     public void updateBrushPosition(String clientID, int x, int y) throws RemoteException {
         brushes.get(clientID).updatePosition(x, y);
+        this.sendNotification();
+    }
+
+    @Override
+    public void addCanvas(LocalCanvas canvas) throws RemoteException {
+        this.canvasesList.add(canvas);
+    }
+
+    private void sendNotification() {
+        canvasesList.forEach(c -> {
+            try {
+                c.notifyChange();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
 }

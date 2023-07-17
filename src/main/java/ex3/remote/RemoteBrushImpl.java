@@ -1,6 +1,6 @@
-package ex3.view;
+package ex3.remote;
 
-import ex3.view.interfaces.RemoteBrush;
+import ex3.remote.interfaces.RemoteBrush;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;

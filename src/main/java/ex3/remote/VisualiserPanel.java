@@ -1,7 +1,7 @@
-package ex3.view;
+package ex3.remote;
 
-import ex3.view.interfaces.RemoteBrushManager;
-import ex3.view.interfaces.RemotePixelGrid;
+import ex3.remote.interfaces.RemoteBrushManager;
+import ex3.remote.interfaces.RemotePixelGrid;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,7 +66,7 @@ public class VisualiserPanel extends JPanel {
     private void drawBrushes(Graphics2D g) throws RemoteException {
         brushManager.getBrushes().forEach(brush -> {
             try {
-                g.setColor(new java.awt.Color(brush.getColor()));
+                g.setColor(new Color(brush.getColor()));
                 var circle = new java.awt.geom.Ellipse2D.Double(brush.getX() - BRUSH_SIZE / 2.0, brush.getY() - BRUSH_SIZE / 2.0, BRUSH_SIZE, BRUSH_SIZE);
                 // draw the polygon
                 g.fill(circle);

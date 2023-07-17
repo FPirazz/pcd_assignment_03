@@ -1,4 +1,5 @@
-package ex3.view.interfaces;
+package ex3.remote.interfaces;
+
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,4 +16,6 @@ public interface RemoteBrushManager extends Remote {
     int getColor(String clientID) throws RemoteException;
 
     void updateBrushPosition(String clientID, int x, int y) throws RemoteException;
+
+    void addCanvas(final LocalCanvas canvas) throws RemoteException;
 }

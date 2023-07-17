@@ -1,4 +1,4 @@
-package ex3.view.listeners;
+package ex3.remote.listeners;
 
 import java.rmi.RemoteException;
 

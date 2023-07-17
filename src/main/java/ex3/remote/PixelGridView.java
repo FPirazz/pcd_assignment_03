@@ -1,11 +1,11 @@
-package ex3.view;
+package ex3.remote;
 
 import ex3.PixelArtClient;
-import ex3.view.interfaces.RemoteBrushManager;
-import ex3.view.interfaces.RemotePixelGrid;
-import ex3.view.listeners.ColorChangeListener;
-import ex3.view.listeners.MouseMovedListener;
-import ex3.view.listeners.PixelGridEventListener;
+import ex3.remote.interfaces.RemoteBrushManager;
+import ex3.remote.interfaces.RemotePixelGrid;
+import ex3.remote.listeners.ColorChangeListener;
+import ex3.remote.listeners.MouseMovedListener;
+import ex3.remote.listeners.PixelGridEventListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -86,7 +86,9 @@ public class PixelGridView extends JFrame {
     }
     
     public void refresh(){
-        panel.repaint();
+		SwingUtilities.invokeLater(() -> {
+			this.panel.repaint();
+		});
     }
         
     public void display() {
